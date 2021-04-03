@@ -1,20 +1,18 @@
 import java.util.ArrayList;
 
-public class Item {
+public class Item extends Benda{
     private String deskripsi;
-    private String nama;
-    private ArrayList<String> arrAksi = new ArrayList<>(); //pilihan aksi untuk item
     private Ruangan objRuangan;  //ruangan tempat item, jika null artinya item dipegang npc atau plyaer
-    private GameInfo objGameInfo;
 
     //constructor
-    public Item(String nama) {
+    public Item (String nama){
         this.nama = nama;
         // -- dipindahkan karena dinamik tergantung diambil atau dibuang
         //  arrAksi.add("Deskripsi Item");
         //  arrAksi.add("Ambil item");
     }
 
+    @Override
     public void prosesAksi(int pil) {
         //pilihan user untuk aksi yang akan diambil
         //urutan harus sama dengan isi arrAksi
@@ -22,7 +20,7 @@ public class Item {
             System.out.println(deskripsi);
         } else  if (pil==2) {  //bisa ambil atau buang
             if (objRuangan==null) {
-               //dipegang player, buang ke ruangan
+                //dipegang player, buang ke ruangan
                 dibuang();
             } else {
                 //ada di ruangan, diambil player
@@ -60,6 +58,7 @@ public class Item {
         System.out.println(deskripsi);
     }
 
+    @Override
     public ArrayList<String> getAksi() {
         //aksi dinamik tergantung ada di ruangan atau dipegang player/npc
         ArrayList<String> arrOut = new ArrayList<>();

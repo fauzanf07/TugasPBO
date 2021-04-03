@@ -5,8 +5,8 @@ import static java.lang.String.format;
 
 public class Ruangan {
 
-    private Pintu objPintu;
-    private NPC objNPC; 
+    private Benda objPintu;
+    private NPC objNPC;
     private Item  objRoti;
     private ArrayList<Item> arrItem = new ArrayList<>();
     private String deskripsi;
@@ -27,7 +27,7 @@ public class Ruangan {
     public Ruangan() {
         // init ruangan
         // init pintu, kunci dan roti.
-        objPintu = new Pintu();
+        objPintu = new Benda("Pintu");
         objNPC = new NPC();
 
         objRoti  = new Item("Roti");
@@ -73,7 +73,7 @@ public class Ruangan {
             subPil++;
             System.out.printf("%d%d. %s %n", urutPil, subPil, strPil);
         }
-        
+
         // aksi2 NPC
         urutPil++;
         subPil = 0;

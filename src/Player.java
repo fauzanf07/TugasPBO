@@ -44,8 +44,8 @@ public class Player {
     //salah satu yg menggunakan: pintu untuk mengecek apakah player sudah punya kunci
     public boolean cariItem(String namaItem) {
         for (Item objItem:arrItem) {
-             if (namaItem.equals(objItem.getNama())) {
-                 return (true);
+            if (namaItem.equals(objItem.getNama())) {
+                return (true);
             }
         }
         return(false); //tidak ketemu
