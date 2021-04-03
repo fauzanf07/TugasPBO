@@ -5,10 +5,11 @@ import static java.lang.String.format;
 
 public class Ruangan {
 
-    private Benda objPintu;
+    private Pintu objPintu;
     private NPC objNPC;
     private Item  objRoti;
     private ArrayList<Item> arrItem = new ArrayList<>();
+    private ArrayList<Benda> arrBenda = new ArrayList<>();
     private String deskripsi;
     private GameInfo objGameInfo;
     private Scanner sc = new Scanner(System.in);
@@ -27,7 +28,7 @@ public class Ruangan {
     public Ruangan() {
         // init ruangan
         // init pintu, kunci dan roti.
-        objPintu = new Benda("Pintu");
+        objPintu = new Pintu();
         objNPC = new NPC();
 
         objRoti  = new Item("Roti");
@@ -36,6 +37,10 @@ public class Ruangan {
 
         //tambah item ke array
         arrItem.add(objRoti);
+
+        arrBenda.add(objRoti);
+        arrBenda.add(objPintu);
+        arrBenda.add(objNPC);
     }
 
     //aksi yang dapat dilakukan di ruangan
@@ -48,40 +53,18 @@ public class Ruangan {
         int subPil;   //aksinya
 
         //aksi2 item
-        System.out.println("Item di ruangan");
-        for (Item objItem:arrItem) {
+        System.out.println("Benda di ruangan");
+        for (Benda objBenda:arrBenda) {
             urutPil++;
             subPil = 0;   //sistem penomorannya 11  12  13 dst
-            System.out.println(objItem.getNama());
+            System.out.println(objBenda.getNama());
             //ambil pilihannya
-            ArrayList <String> arrPil = objItem.getAksi();
+            ArrayList <String> arrPil = objBenda.getAksi();
             //print pilihan
             for (String strPil:arrPil) {
                 subPil++;
                 System.out.printf("%d%d. %s %n", urutPil, subPil, strPil);
             }
-        }
-
-
-        // aksi2 PINTU
-        //belum menggunakan inheritance, jadi masih perlu penanganan terpisah untuk item spesifik seperti pintu
-        urutPil++;
-        subPil = 0;
-        int pilPintu  = urutPil; //catat untuk pintu
-        System.out.println("Pintu");
-        for (String strPil:objPintu.getAksi()) {
-            subPil++;
-            System.out.printf("%d%d. %s %n", urutPil, subPil, strPil);
-        }
-
-        // aksi2 NPC
-        urutPil++;
-        subPil = 0;
-        int pilNPC  = urutPil; //catat untuk pintu
-        System.out.println("NPC");
-        for (String strPil:objNPC.getAksi()) {
-            subPil++;
-            System.out.printf("%d%d. %s %n", urutPil, subPil, strPil);
         }
 
         System.out.print("Pilihan anda?");
@@ -93,26 +76,19 @@ public class Ruangan {
         int pil    =  Integer.parseInt(strPil.substring(0,1)); //ambil digit pertama, asumsikan jumlah tidak lebih dari 10
         subPil     =  Integer.parseInt(strPil.substring(1,2)); //ambil digit kedua, asumsikan jumlah tidak lebih dari 10
 
-        //tdk perlu if spt ini kalau sudah menggunakan inheritance
-        if (pil ==pilPintu) {
-            objPintu.prosesAksi(subPil);  //aksi pintu
-        } else if (pil==pilNPC) {
-            objNPC.prosesAksi(subPil);
-        } else {
-            //item
-            Item objItemPilih = arrItem.get(pil-1);
-            objItemPilih.prosesAksi(subPil); //aksi item
-        }
+        arrBenda.get(pil-1).prosesAksi(subPil);
 
     }
 
     // hapus item di ruangan berdasarkan namanya
     // digunakan saat suatu item diambil oleh player misalnya
     public void hapusItem(Item objItem) {
+        arrBenda.remove(objItem);
         arrItem.remove(objItem);  //buang item
     }
 
     public void addItem(Item objItem) {
+        arrBenda.add(objItem);
         arrItem.add(objItem);
     }
 

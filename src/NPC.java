@@ -1,14 +1,13 @@
 import java.util.ArrayList;
 
-public class NPC {
+public class NPC extends Benda{
     //kunci dipindahkan dari ruangan
     private Item  objKunci;
-    private ArrayList<String> arrAksi = new ArrayList<>();
-    private GameInfo objGameInfo;
     private boolean isKenal = false;
 
     public NPC() {
         //init kunci
+        this.setNama("NPC");
         objKunci = new Item("Kunci");
         objKunci.setDeskripsi("Sebuah kunci kecil yang sudah agak berkarat");
 
@@ -17,7 +16,8 @@ public class NPC {
         arrAksi.add("Minta kunci");
 
     }
-
+    
+    @Override
     public void prosesAksi(int subPil) {
         //1: perkenalan dengan npc
         //2: buka pintu
@@ -41,13 +41,5 @@ public class NPC {
             }
         }
     }
-
-    public void setObjGameInfo(GameInfo objGameInfo) {
-        this.objGameInfo = objGameInfo;
-        objKunci.setObjGameInfo(objGameInfo);
-    }
-
-    public ArrayList<String> getAksi() {
-        return arrAksi;
-    }
+    
 }

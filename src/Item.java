@@ -45,20 +45,12 @@ public class Item extends Benda{
         objRuangan = null;
     }
 
-    public String getNama() {
-        return nama;
-    }
-
-    public void setNama(String nama) {
-        this.nama = nama;
-    }
-
     public void printItem() {
         //print deskripsi item
         System.out.println(deskripsi);
     }
 
-    @Override
+
     public ArrayList<String> getAksi() {
         //aksi dinamik tergantung ada di ruangan atau dipegang player/npc
         ArrayList<String> arrOut = new ArrayList<>();
@@ -72,10 +64,6 @@ public class Item extends Benda{
             arrOut.add("Ambil item");
         }
         return(arrOut);
-    }
-
-    public void setObjGameInfo(GameInfo objGameInfo) {
-        this.objGameInfo = objGameInfo;
     }
 
     public void setObjRuangan(Ruangan objRuangan) {
