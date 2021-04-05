@@ -6,7 +6,7 @@ public class Item extends Objek{
 
     //constructor
     public Item (String nama){
-        this.nama = nama;
+        super.setNama(nama);
         // -- dipindahkan karena dinamik tergantung diambil atau dibuang
     }
 
@@ -29,16 +29,16 @@ public class Item extends Objek{
 
     private void dibuang() {
         System.out.println("Item dibuang player ke ruangan");
-        objGameInfo.getObjPlayer().hapusItem(this); //hapus dari player
-        objGameInfo.getObjRuangan().addItem(this);  //tambah ke ruangan
-        objRuangan = objGameInfo.getObjRuangan(); // set ruangan
+        super.objGameInfo.getObjPlayer().hapusItem(this); //hapus dari player
+        super.objGameInfo.getObjRuangan().addItem(this);  //tambah ke ruangan
+        objRuangan = super.objGameInfo.getObjRuangan(); // set ruangan
     }
 
 
     //pindahkan item dari ruangan ke player
     private void diambil() {
         System.out.println("Item diambil player");
-        objGameInfo.getObjPlayer().addItem(this);     //tambahkan  objek ini (this) pada player
+        super.objGameInfo.getObjPlayer().addItem(this);     //tambahkan  objek ini (this) pada player
         objRuangan.hapusItem(this);                    //hapus dari ruangan
         objRuangan = null;
     }

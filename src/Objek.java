@@ -3,9 +3,9 @@ import java.util.ArrayList;
 
 public class Objek {
 
-    protected String nama;
-    protected ArrayList<String> arrAksi = new ArrayList<>();
-    protected GameInfo objGameInfo;
+    private String nama;
+    private ArrayList<String> arrAksi = new ArrayList<>();
+    private GameInfo objGameInfo;
 
     public String getNama() {
         return nama;
@@ -23,6 +23,12 @@ public class Objek {
         return arrAksi;
     }
 
-    public void prosesAksi(int subPil) {
-        }
+    public void setArrAksi(String vArrAksi){
+      arrAksi.add(vArrAksi);
+    }
+
+    public void prosesAksi(int pilObj){
+
+    }
+    
 }
