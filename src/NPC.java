@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class NPC extends Benda{
+public class NPC extends Objek{
     //kunci dipindahkan dari ruangan
     private Item  objKunci;
     private boolean isKenal = false;

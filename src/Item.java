@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Item extends Benda{
+public class Item extends Objek{
     private String deskripsi;
     private Ruangan objRuangan;  //ruangan tempat item, jika null artinya item dipegang npc atau plyaer
 
@@ -8,8 +8,6 @@ public class Item extends Benda{
     public Item (String nama){
         this.nama = nama;
         // -- dipindahkan karena dinamik tergantung diambil atau dibuang
-        //  arrAksi.add("Deskripsi Item");
-        //  arrAksi.add("Ambil item");
     }
 
     @Override

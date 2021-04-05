@@ -1,7 +1,7 @@
 import java.util.ArrayList;
-//belum menggunakan inheritance, idealnya turunan dari Item
+// class parent untuk Item, NPC, dan pintu
 
-public class Benda {
+public class Objek {
 
     protected String nama;
     protected ArrayList<String> arrAksi = new ArrayList<>();

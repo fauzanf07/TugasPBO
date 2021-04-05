@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Pintu extends Benda{
+public class Pintu extends Objek{
 
   public Pintu() {
         //init pilihan

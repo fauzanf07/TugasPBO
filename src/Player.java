@@ -77,11 +77,12 @@ public class Player {
         System.out.println("**** Pilihan Aksi pada Player *** ");
         //disamakan dengan  ruangan
         //bisa direfactoring nanti supaya tdk duplikasi
+
         //aksi2 item yang dimiliki player
         int urutPil = 0;  //item
         int subPil;   //aksinya
         System.out.println("Item yang dimiliki player");
-        for (Benda objBenda:arrBenda) {
+        for (Item objItem:arrItem) {
             urutPil++;
             subPil = 0;   //sistem penomorannya 11  12  13 dst
             System.out.println(objItem.getNama());

@@ -9,7 +9,7 @@ public class Ruangan {
     private NPC objNPC;
     private Item  objRoti;
     private ArrayList<Item> arrItem = new ArrayList<>();
-    private ArrayList<Benda> arrBenda = new ArrayList<>();
+    private ArrayList<Objek> arrObjek = new ArrayList<>();
     private String deskripsi;
     private GameInfo objGameInfo;
     private Scanner sc = new Scanner(System.in);
@@ -38,9 +38,9 @@ public class Ruangan {
         //tambah item ke array
         arrItem.add(objRoti);
 
-        arrBenda.add(objRoti);
-        arrBenda.add(objPintu);
-        arrBenda.add(objNPC);
+        arrObjek.add(objRoti);
+        arrObjek.add(objPintu);
+        arrObjek.add(objNPC);
     }
 
     //aksi yang dapat dilakukan di ruangan
@@ -53,13 +53,13 @@ public class Ruangan {
         int subPil;   //aksinya
 
         //aksi2 item
-        System.out.println("Benda di ruangan");
-        for (Benda objBenda:arrBenda) {
+        System.out.println("Objek di ruangan");
+        for (Objek objObjek:arrObjek) {
             urutPil++;
             subPil = 0;   //sistem penomorannya 11  12  13 dst
-            System.out.println(objBenda.getNama());
+            System.out.println(objObjek.getNama());
             //ambil pilihannya
-            ArrayList <String> arrPil = objBenda.getAksi();
+            ArrayList <String> arrPil = objObjek.getAksi();
             //print pilihan
             for (String strPil:arrPil) {
                 subPil++;
@@ -76,19 +76,19 @@ public class Ruangan {
         int pil    =  Integer.parseInt(strPil.substring(0,1)); //ambil digit pertama, asumsikan jumlah tidak lebih dari 10
         subPil     =  Integer.parseInt(strPil.substring(1,2)); //ambil digit kedua, asumsikan jumlah tidak lebih dari 10
 
-        arrBenda.get(pil-1).prosesAksi(subPil);
+        arrObjek.get(pil-1).prosesAksi(subPil);
 
     }
 
     // hapus item di ruangan berdasarkan namanya
     // digunakan saat suatu item diambil oleh player misalnya
     public void hapusItem(Item objItem) {
-        arrBenda.remove(objItem);
+        arrObjek.remove(objItem);
         arrItem.remove(objItem);  //buang item
     }
 
     public void addItem(Item objItem) {
-        arrBenda.add(objItem);
+        arrObjek.add(objItem);
         arrItem.add(objItem);
     }
 
