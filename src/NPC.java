@@ -12,8 +12,8 @@ public class NPC extends Objek{
         objKunci.setDeskripsi("Sebuah kunci kecil yang sudah agak berkarat");
 
         //aksi npc
-        super.arrAksi.add("Perkenalan dgn NPC");
-        super.arrAksi.add("Minta kunci");
+        super.setArrAksi("Perkenalan dgn NPC");
+        super.setArrAksi("Minta kunci");
 
     }
     
@@ -32,7 +32,7 @@ public class NPC extends Objek{
                 } else
                 {
                     System.out.println("Kunci diberikan pada player");
-                    super.objGameInfo.getObjPlayer().addItem(objKunci);     //tambahkan  objek ini pada player
+                    super.getObjGameInfo().getObjPlayer().addItem(objKunci);     //tambahkan  objek ini pada player
                     objKunci = null;
                 }
 

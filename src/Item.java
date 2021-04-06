@@ -29,16 +29,16 @@ public class Item extends Objek{
 
     private void dibuang() {
         System.out.println("Item dibuang player ke ruangan");
-        super.objGameInfo.getObjPlayer().hapusItem(this); //hapus dari player
-        super.objGameInfo.getObjRuangan().addItem(this);  //tambah ke ruangan
-        objRuangan = super.objGameInfo.getObjRuangan(); // set ruangan
+        super.getObjGameInfo().getObjPlayer().hapusItem(this); //hapus dari player
+        super.getObjGameInfo().getObjRuangan().addItem(this);  //tambah ke ruangan
+        objRuangan = super.getObjGameInfo().getObjRuangan(); // set ruangan
     }
 
 
     //pindahkan item dari ruangan ke player
     private void diambil() {
         System.out.println("Item diambil player");
-        super.objGameInfo.getObjPlayer().addItem(this);     //tambahkan  objek ini (this) pada player
+        super.getObjGameInfo().getObjPlayer().addItem(this);     //tambahkan  objek ini (this) pada player
         objRuangan.hapusItem(this);                    //hapus dari ruangan
         objRuangan = null;
     }

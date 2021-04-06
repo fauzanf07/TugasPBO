@@ -5,6 +5,11 @@ public class Objek {
 
     private String nama;
     private ArrayList<String> arrAksi = new ArrayList<>();
+
+    public GameInfo getObjGameInfo() {
+        return objGameInfo;
+    }
+
     private GameInfo objGameInfo;
 
     public String getNama() {
